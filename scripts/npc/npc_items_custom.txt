@@ -12445,4 +12445,127 @@
 			}
 		}
 	}
+	
+	//=================================================================================================================
+	// Recipe: Octafresher
+	//=================================================================================================================
+	"item_recipe_octafresher"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass" 					"item_datadriven"
+		"ID"							"69200"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"Model"							"models/props_gameplay/recipe.vmdl"
+		"AbilityTextureName"			"item_recipe"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"1500"	
+		"ItemShopTags"					""
+		
+		// Recipe
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemRecipe"					"1"
+		"ItemResult"					"Item_octafresher"
+		"ItemRequirements"
+		{
+			"01"						"item_octarine_core;item_refresher"
+		}
+	}
+	
+	//=================================================================================================================
+	// Octafresher
+	//=================================================================================================================
+	"item_octafresher"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"item_datadriven"
+		"ID"							"69201"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"Model"							"models/props_gameplay/red_box.vmdl" 
+		"Effect"						"particles/generic_gameplay/dropped_item.vpcf"
+		"AbilityTextureName"			"item_octafresher"
+		"FightRecapLevel"				"1"
+
+		/ Stats		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"120"
+		"AbilityManaCost"				"250"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"11775"
+		"ItemShopTags"					"move_speed;boost_mana;mana_pool"
+		"ItemQuality"					"artifact"
+		"ItemAliases"					"octafresher"
+		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
+		
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_cooldown"		"25"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"cast_range_bonus"			"225"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_health"			"425"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_mana"			"725"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"bonus_mana_regen"		"15.0"
+			}
+			"06"
+			{
+				"var_type" 				"FIELD_INTEGER"
+				"bonus_health_regen"	"13"
+			}
+		}
+		
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"		"items/item_octafresher.lua"
+				"Function"			"item_refresher_datadriven_on_spell_start"
+			}
+		}
+		
+		"Modifiers"
+		{
+			"modifier_item_octafresher"
+			{
+				"Passive"			"1"
+				"IsHidden"			"1"
+				"Attributes" 		"MODIFIER_ATTRIBUTE_MULTIPLE"
+			
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_COOLDOWN_PERCENTAGE"		"%bonus_cooldown"
+					"MODIFIER_PROPERTY_CAST_RANGE_BONUS"		"%cast_range_bonus"
+					"MODIFIER_PROPERTY_HEALTH_BONUS"			"%bonus_health"
+					"MODIFIER_PROPERTY_MANA_BONUS"				"%bonus_mana"
+					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"	"%bonus_health_regen"
+
+				}
+			}	
+		}	
+	}	
 }
