@@ -1,3 +1,25 @@
-<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+"AddonInfo"
 {
+	maps			"desert_duo mines_trio forest_solo desert_quintet temple_quartet"
+	"IsPlayable"	"1"
+	"mines_trio"
+	{
+					"MaxPlayers"                    "9"
+	}
+	"desert_duo"
+	{
+					"MaxPlayers"                    "10"
+	}
+	"forest_solo"
+	{
+					"MaxPlayers"                    "10"
+	}
+	"desert_quintet"
+	{
+					"MaxPlayers"                    "15"
+	}
+	"temple_quartet"
+	{
+					"MaxPlayers"                    "16"
+	}
 }
