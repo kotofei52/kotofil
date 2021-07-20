@@ -12454,7 +12454,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass" 					"item_datadriven"
-		"ID"							"69200"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"ID"							"69202"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"Model"							"models/props_gameplay/recipe.vmdl"
 		"AbilityTextureName"			"item_recipe"
 
@@ -12466,10 +12466,11 @@
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemRecipe"					"1"
-		"ItemResult"					"Item_octafresher"
+		"ItemResult"					"item_octafresher"
 		"ItemRequirements"
 		{
 			"01"						"item_octarine_core;item_refresher"
+
 		}
 	}
 	
@@ -12482,13 +12483,14 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"						"item_datadriven"
 		"ID"							"69201"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"Model"							"models/props_gameplay/red_box.vmdl" 
 		"Effect"						"particles/generic_gameplay/dropped_item.vpcf"
 		"AbilityTextureName"			"item_octafresher"
-		"FightRecapLevel"				"1"
+		"AbilitySharedCooldown"			"item_refresher"
+		
 
-		/ Stats		
+		// Stats		
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastPoint"				"0.0"
 		"AbilityCooldown"				"120"
@@ -12559,10 +12561,11 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_COOLDOWN_PERCENTAGE"		"%bonus_cooldown"
-					"MODIFIER_PROPERTY_CAST_RANGE_BONUS"		"%cast_range_bonus"
+					"MODIFIER_PROPERTY_CAST_RANGE_BONUS" 		"225"
 					"MODIFIER_PROPERTY_HEALTH_BONUS"			"%bonus_health"
 					"MODIFIER_PROPERTY_MANA_BONUS"				"%bonus_mana"
 					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"	"%bonus_health_regen"
+					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT" 	"%bonus_mana_regen"
 
 				}
 			}	

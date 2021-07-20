@@ -16,7 +16,7 @@ function item_refresher_datadriven_on_spell_start(keys)
 	for i=0, 5, 1 do
 		local current_item = keys.caster:GetItemInSlot(i)
 		if current_item ~= nil then
-			if current_item:GetName() ~= "item_refresher_datadriven" then  --Refresher Orb does not refresh itself.
+			if current_item:GetName() ~= "item_octafresher" then  --Refresher Orb does not refresh itself.
 				current_item:EndCooldown()
 			end
 		end
